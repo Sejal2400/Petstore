@@ -1,0 +1,28 @@
+{% include 'base/header.html' %}
+{% block content %}
+    <div class="container">
+        <h4 style="text-align: cemter ; margin-top:20px;
+        margin-bottom:20px;  ">PETS LIST DATA</h4>
+
+        <div class="row">
+            <h3>Cat list</h3>
+            {% for obj in objectsc %}
+            <div class="col-lg-3">
+                <div class="card" style="height: 480px; cursor:pointer;">
+                    <div class="card-body">
+                        <a href="{% url 'pet_detail' pk=obj.pk %}" ><p>{{ obj.name }}</p></a>
+                        <img height="200px" class="card-img-top" src="{{ obj.image.url }}">
+                        <p class="card-text">{{ obj.breed}}</p>
+                        <p><b>Age is:  {{ obj.age }}</b></p>
+                        <p><b> Gender:  {{ obj.gender }}</b></p>
+                        <p><b>Price:  {{ obj.price }}</b></p>
+                        
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+
+{% endblock %}
+{% include 'base/footer.html' %}
